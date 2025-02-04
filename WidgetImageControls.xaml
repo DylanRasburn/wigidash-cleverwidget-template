@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="CleverWidget.WidgetImageControls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CleverWidget" d:DataContext="{d:DesignInstance Type=local:WidgetImageControls}"
+             mc:Ignorable="d" 
+             d:Background="White"
+             d:DesignHeight="240"
+             d:DesignWidth="225">
+    <Expander>
+        <Expander.HeaderTemplate>
+            <DataTemplate>
+                <TextBlock Text="Image Overlay" FontWeight="Bold" />
+            </DataTemplate>
+        </Expander.HeaderTemplate>
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <TextBlock Margin="6,2,6,2" Text="Default Image Options" FontWeight="Bold" FontSize="10"/>
+                    <Grid Margin="2" Height="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="imagePrimaryFilepathTextBox" Text="No image loaded..." IsReadOnly="True" MaxLines="1" Grid.Column="0" HorizontalAlignment="Stretch" PreviewMouseDown="imageFilePath_MouseDown"/>
+                        <Button x:Name="imagePrimaryBrowseButton" Content="Browse" Click="imageBrowse_Click" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="10"/>
+                        <Button x:Name="imagePrimaryClearButton" Content="🗑️" Click="clearImage_Click" Grid.Column="2" HorizontalAlignment="Stretch" FontSize="10"/>
+                    </Grid>
+                    <Grid Margin="2" Height="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Offset X" FontSize="10" Grid.Column="0" HorizontalAlignment="Stretch"/>
+                        <xctk:IntegerUpDown x:Name="imagePrimaryXOffsetUpDown" ClipValueToMinMax="True" Grid.Column="1" Increment="10" HorizontalAlignment="Stretch" ValueChanged="imageXOffSet_OnValueChanged"/>
+                        <Label Content="Offset Y" FontSize="10" Grid.Column="2" HorizontalAlignment="Stretch"/>
+                        <xctk:IntegerUpDown x:Name="imagePrimaryYOffsetUpDown" ClipValueToMinMax="True" Grid.Column="3" Increment="10" HorizontalAlignment="Stretch" ValueChanged="imageYOffSet_OnValueChanged"/>
+                        <Label Content="Zoom" FontSize="10" Grid.Column="4" HorizontalAlignment="Stretch"/>
+                        <xctk:DoubleUpDown x:Name="imagePrimaryZoomUpDown" ClipValueToMinMax="True" Grid.Column="5" Minimum="0.05" Maximum="5.00" Increment="0.05" FormatString="F2" HorizontalAlignment="Stretch" ValueChanged="imageZoom_OnValueChanged"/>
+                        <Label Content="Rotation" FontSize="10" Grid.Column="6" HorizontalAlignment="Stretch"/>
+                        <xctk:IntegerUpDown x:Name="imagePrimaryRotationUpDown" ClipValueToMinMax="True" Grid.Column="7" Minimum="0" Increment="5" Maximum="360" HorizontalAlignment="Stretch" ValueChanged="imageRotation_OnValueChanged"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel x:Name="toggledImageOptions" Visibility="Collapsed" Grid.Row="1">
+                    <TextBlock Margin="6,2,6,2" Text="Toggled Image Options" FontWeight="Bold" FontSize="10"/>
+                    <Grid Margin="2" Height="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="imageSecondaryFilepathTextBox" Text="No image loaded..." IsReadOnly="True" MaxLines="1" Grid.Column="0" HorizontalAlignment="Stretch" PreviewMouseDown="imageFilePath_MouseDown"/>
+                        <Button x:Name="imageSecondaryBrowseButton" Content="Browse" Click="imageBrowse_Click" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="10"/>
+                        <Button x:Name="imageSecondaryClearButton" Content="🗑️" Click="clearImage_Click" Grid.Column="2" HorizontalAlignment="Stretch" FontSize="10"/>
+                    </Grid>
+                    <Grid Margin="2" Height="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Offset X" FontSize="10" Grid.Column="0" HorizontalAlignment="Stretch"/>
+                        <xctk:IntegerUpDown x:Name="imageSecondaryXOffsetUpDown" ClipValueToMinMax="True" Grid.Column="1" Increment="10" HorizontalAlignment="Stretch" ValueChanged="imageXOffSet_OnValueChanged"/>
+                        <Label Content="Offset Y" FontSize="10" Grid.Column="2" HorizontalAlignment="Stretch"/>
+                        <xctk:IntegerUpDown x:Name="imageSecondaryYOffsetUpDown" ClipValueToMinMax="True" Grid.Column="3" Increment="10" HorizontalAlignment="Stretch" ValueChanged="imageYOffSet_OnValueChanged"/>
+                        <Label Content="Zoom" FontSize="10" Grid.Column="4" HorizontalAlignment="Stretch"/>
+                        <xctk:DoubleUpDown x:Name="imageSecondaryZoomUpDown" ClipValueToMinMax="True" Grid.Column="5" Minimum="0.05" Maximum="5.00" Increment="0.05" FormatString="F2" HorizontalAlignment="Stretch" ValueChanged="imageZoom_OnValueChanged"/>
+                        <Label Content="Rotation" FontSize="10" Grid.Column="6" HorizontalAlignment="Stretch"/>
+                        <xctk:IntegerUpDown x:Name="imageSecondaryRotationUpDown" ClipValueToMinMax="True" Grid.Column="7" Minimum="0" Increment="5" Maximum="360" HorizontalAlignment="Stretch" ValueChanged="imageRotation_OnValueChanged"/>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Expander>
+</UserControl>

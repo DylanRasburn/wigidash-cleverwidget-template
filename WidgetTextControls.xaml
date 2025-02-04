@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="CleverWidget.WidgetTextControls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CleverWidget"
+             mc:Ignorable="d" 
+             d:Background="White"
+             d:DesignHeight="240"
+             d:DesignWidth="225">
+    <Expander IsExpanded="False">
+        <Expander.HeaderTemplate>
+            <DataTemplate>
+                <TextBlock Text="Text Overlay" FontWeight="Bold" />
+            </DataTemplate>
+        </Expander.HeaderTemplate>
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <TextBlock Margin="6,2,6,2" Text="Default Text Options" FontWeight="Bold" FontSize="10"/>
+                    <TextBox x:Name="textPrimary" Margin="2" Grid.Row="0" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap" Width="Auto" VerticalScrollBarVisibility="Auto" Height="Auto" MaxHeight="36" TextChanged="TextBox_TextChanged"/>
+                    <Grid Margin="2" Height="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Font" FontSize="10" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+                        <Button x:Name="textPrimaryFontSelect" Grid.Column="1" Click="textFontSelect_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    </Grid>
+                    <Grid Margin="2" Height="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Font Color" FontSize="10" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+                        <Button x:Name="textPrimaryColorSelect" Grid.Column="1" Click="textColorSelect_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    </Grid>
+                    <Grid Margin="2" Height="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Alignment" FontSize="10" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+                        <ComboBox x:Name="textPrimaryAlignmentCombo" Grid.Column="1" SelectionChanged="textAlignment_OnValueChanged" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                        <Label Content="Offset X" FontSize="10" Grid.Column="2" HorizontalAlignment="Stretch"/>
+                        <xctk:IntegerUpDown x:Name="textPrimaryXOffsetUpDown" ClipValueToMinMax="True" Grid.Column="3" Increment="10" HorizontalAlignment="Stretch" ValueChanged="textXOffSet_OnValueChanged"/>
+                        <Label Content="Offset Y" FontSize="10" Grid.Column="4" HorizontalAlignment="Stretch"/>
+                        <xctk:IntegerUpDown x:Name="textPrimaryYOffsetUpDown" ClipValueToMinMax="True" Grid.Column="5" Increment="10" HorizontalAlignment="Stretch" ValueChanged="textYOffSet_OnValueChanged"/>
+                    </Grid>
+                    <Grid Margin="2" Height="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Stroke Color" FontSize="10" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+                        <Button x:Name="strokePrimaryColorSelect" Grid.Column="1" Click="strokeColorSelect_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                        <Label Content="Stroke Width" FontSize="10" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+                        <xctk:IntegerUpDown x:Name="strokePrimaryWidthUpDown" ClipValueToMinMax="True" Grid.Column="3" Minimum="0" Maximum="20" Increment="1" HorizontalAlignment="Stretch" ValueChanged="strokeWidth_OnValueChanged"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel x:Name="toggledTextOptions" Visibility="Collapsed" Grid.Row="1">
+                    <TextBlock Margin="6,2,6,2" Text="Default Text Options" FontWeight="Bold" FontSize="10"/>
+                    <TextBox x:Name="textSecondary" Margin="2" Grid.Row="0" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap" Width="Auto" VerticalScrollBarVisibility="Auto" Height="Auto" MaxHeight="36" TextChanged="TextBox_TextChanged"/>
+                    <Grid Margin="2" Height="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Font" FontSize="10" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+                        <Button x:Name="textSecondaryFontSelect" Grid.Column="1" Click="textFontSelect_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    </Grid>
+                    <Grid Margin="2" Height="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Font Color" FontSize="10" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+                        <Button x:Name="textSecondaryColorSelect" Grid.Column="1" Click="textColorSelect_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                    </Grid>
+                    <Grid Margin="2" Height="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Alignment" FontSize="10" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+                        <ComboBox x:Name="textSecondaryAlignmentCombo" Grid.Column="1" SelectionChanged="textAlignment_OnValueChanged" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                        <Label Content="Offset X" FontSize="10" Grid.Column="2" HorizontalAlignment="Stretch"/>
+                        <xctk:IntegerUpDown x:Name="textSecondaryXOffsetUpDown" ClipValueToMinMax="True" Grid.Column="3" Increment="10" HorizontalAlignment="Stretch" ValueChanged="textXOffSet_OnValueChanged"/>
+                        <Label Content="Offset Y" FontSize="10" Grid.Column="4" HorizontalAlignment="Stretch"/>
+                        <xctk:IntegerUpDown x:Name="textSecondaryYOffsetUpDown" ClipValueToMinMax="True" Grid.Column="5" Increment="10" HorizontalAlignment="Stretch" ValueChanged="textYOffSet_OnValueChanged"/>
+                    </Grid>
+                    <Grid Margin="2" Height="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Stroke Color" FontSize="10" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+                        <Button x:Name="strokeSecondaryColorSelect" Grid.Column="1" Click="strokeColorSelect_Click" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                        <Label Content="Stroke Width" FontSize="10" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+                        <xctk:IntegerUpDown x:Name="strokeSecondaryWidthUpDown" ClipValueToMinMax="True" Grid.Column="3" Minimum="0" Maximum="20" Increment="1" HorizontalAlignment="Stretch" ValueChanged="strokeWidth_OnValueChanged"/>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Expander>
+</UserControl>
